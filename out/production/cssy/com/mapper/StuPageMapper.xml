@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--首先来解析namespace:命名空间，此属性通常用来映射map层接口。-->
+
+<mapper namespace="com.mapper.StuPageMapper">
+    <select id="findTotalCount"  resultType="Integer">
+      select count(*) from stu_info
+    </select>
+
+    <select id="findPageItems"  resultType="com.entity.Student">
+        select * from stu_info  limit ${begin},${pageSize}
+    </select>
+
+</mapper>
