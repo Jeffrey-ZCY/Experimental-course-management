@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--首先来解析namespace:命名空间，此属性通常用来映射map层接口。-->
+
+<mapper namespace="com.mapper.TesterMapper">
+    <select id="findById" parameterType="Integer" resultType="com.entity.Tester">
+      select * from tester_info where testerid =#{id}
+    </select>
+
+    <select id="findByName" parameterType="String" resultType="com.entity.Tester">
+        select * from tester_info where testername =#{name}
+    </select>
+    <select id="list" resultType="com.entity.Tester">
+      select * from tester_info
+    </select>
+
+    <insert id="add" parameterType="com.entity.Tester">
+    insert into tester_info (testerid,testername,testerpwd)
+    values (#{testerid},#{testername},#{testerpwd})
+    </insert>
+
+    <update id="update" parameterType="com.entity.Tester">
+     update tester_info set
+     testername = #{testername},
+     testerpwd = #{testerid},
+     where testerid = #{testerid}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+      delete from tester_info where testerid = #{testerid}
+    </delete>
+
+</mapper>
