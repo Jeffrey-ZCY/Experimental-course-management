@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.Mapper.CourseMapper">
+	<insert id="addCourse" parameterType="com.xidian.pojo.Course">
+		insert into course (course_id,course_name,experiment_hours,classes,teaching_department,teaching_term)
+		values (#{course_id},#{course_name},#{experiment_hours},#{classes},#{teaching_department},#{teaching_term});
+	</insert>
+
+	<delete id="deleteCourse" parameterType="int">
+		delete from course where course_id = #{course_id};
+	</delete>
+
+    <select id="getCourseList" resultType="com.xidian.pojo.Course">
+		select * from course
+	</select>
+
+	<select id="getCourseById" parameterType="int" resultType="com.xidian.pojo.Course">
+		select * from course where course_id = #{course_id}
+	</select>
+
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.Mapper.LaboratoryMapper">
+    <insert id="addLaboratory" parameterType="com.xidian.pojo.Laboratory">
+        insert into Laboratory (room,number) values (#{room},#{number});
+    </insert>
+
+    <delete id="deleteLaboratory" parameterType="int">
+        delete from Laboratory where room = #{room};
+    </delete>
+
+    <select id="getLaboratoryList" resultType="com.xidian.pojo.Laboratory">
+		select * from Laboratory
+	</select>
+
+    <select id="getLaboratoryByRoom" parameterType="int" resultType="com.xidian.pojo.Laboratory">
+		select * from Laboratory where room = #{room}
+	</select>
+
+</mapper>
