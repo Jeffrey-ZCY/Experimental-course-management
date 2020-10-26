@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.Mapper.Experiment_scoreMapper">
+    <insert id="addScoreList" parameterType="com.xidian.pojo.Experiment_score">
+        insert into experiment_score (experiment_name,course_name,stu_id,stu_name,stu_class,experiment_score)
+        values (#{experiment_name},#{course_name},#{stu_id},#{stu_name},#{stu_class},#{experiment_score});
+    </insert>
+
+    <select id="getExperiment_score" parameterType="int" resultType="com.xidian.pojo.Experiment_score">
+        select * from experiment_score where stu_id = #{stu_id}
+    </select>
+
+    <update id="update" parameterType="com.xidian.pojo.Experiment_score">
+        update experiment_score
+        set experiment_score = #{experiment_score},experiment_name= #{experiment_name},
+        course_name=#{course_name},stu_id=#{stu_id},stu_name=#{stu_name},stu_class=#{stu_class}
+
+    </update>
+
+    <update id="updateScore" parameterType="com.xidian.pojo.Experiment_score">
+        update experiment_score
+        set experiment_score = #{experiment_score}
+        where stu_id = #{stu_id};
+    </update>
+
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.Mapper.StudentsMapper">
+    <insert id="addStudent" parameterType="com.xidian.pojo.Students">
+		insert into students (stu_id,stu_class,course_id,experiment_id,total_score)
+		values (#{stu_id},#{stu_class},#{course_id},#{experiment_id},#{total_score});
+	</insert>
+	<update id="updateStudent" parameterType="com.xidian.pojo.Students">
+		update students set experiment_id =#{experiment_id}, stu_class=#{stu_class},course_id=#{course_id},total_score=#{total_score}
+        where stu_id = #{stu_id}
+	</update>
+
+
+    <delete id="deleteStudents" parameterType="int">
+		delete from students where stu_id = #{stu_id};
+	</delete>
+
+    <select id="getStudentsList" resultType="com.xidian.pojo.Students">
+		select * from students
+	</select>
+
+    <select id="getStudentById" parameterType="int" resultType="com.xidian.pojo.Students">
+		select * from students where stu_id = #{stu_id}
+	</select>
+
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.Mapper.Class_scheduleMapper">
+    <insert id="addClassSchedule" parameterType="com.xidian.pojo.Class_schedule">
+        insert into class_schedule (course_id,total_number,experiment_id,name,experiment_time,experiment_room,batch,stu_number)
+        values (#{course_id},#{total_number},#{experiment_id},#{name},#{experiment_time},#{experiment_room},#{batch},#{stu_number});
+    </insert>
+
+    <delete id="deleteClassSchedule" parameterType="int">
+        delete from class_schedule where experiment_id = #{experiment_id};
+    </delete>
+
+    <select id="getClassScheduleList" resultType="com.xidian.pojo.Class_schedule">
+		select * from class_schedule
+	</select>
+
+    <select id="getClassScheduleById" parameterType="int" resultType="com.xidian.pojo.Class_schedule">
+		select * from class_schedule where experiment_id = #{experiment_id}
+	</select>
+
+</mapper>

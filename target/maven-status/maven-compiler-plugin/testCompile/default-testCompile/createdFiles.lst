@@ -1,0 +1,9 @@
+com\xidian\Mapper\Class_scheduleMapperTest.class
+com\xidian\Mapper\Experimenter_loginMapperTest.class
+com\xidian\Mapper\ExperimenterMapperTest.class
+com\xidian\Mapper\ExperimentMapperTest.class
+com\xidian\Mapper\LaboratoryMapperTest.class
+com\xidian\Mapper\StudentsMapperTest.class
+com\xidian\Mapper\Experiment_scoreMapperTest.class
+com\xidian\Mapper\CourseMapperTest.class
+com\xidian\Mapper\Administrators_loginMapperTest.class

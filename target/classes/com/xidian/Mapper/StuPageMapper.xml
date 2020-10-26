@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.xidian.Mapper.StuPageMapper">
+    <select id="findTotalCount"  resultType="Integer">
+      select count(*) from students
+    </select>
+    <select id="find2TotalCount"  parameterType="Integer" resultType="Integer">
+          select count(*) from experiment_score natural join experimenter where id =#{id}
+        </select>
+    <select id="findPageItems"  resultType="com.xidian.pojo.Students">
+        select * from students  limit ${begin},${pageSize}
+    </select>
+    <select id="find1TotalCount"  parameterType="Integer" resultType="Integer">
+      select count(*) from students natural join experimenter where id =#{id}
+    </select>
+    <select id="findExTotalCount"  resultType="Integer">
+      select count(*) from experiment_score
+    </select>
+    <select id="findTTotalCount"  parameterType="Integer" resultType="Integer">
+      select count(*) from class_schedule natural join experimenter where id =#{id}
+    </select>
+    <select id="findExpTotalCount"  resultType="Integer">
+      select count(*) from experiment
+    </select>
+    <select id="findExperTotalCount"  resultType="Integer">
+      select count(*) from experimenter
+    </select>
+    <select id="findLaTotalCount"  resultType="Integer">
+      select count(*) from laboratory
+    </select>
+
+    <select id="findExpPageItems"  resultType="com.xidian.pojo.Experiment">
+        select * from experiment  limit ${begin},${pageSize}
+    </select>
+    <select id="find2PageItems"  resultType="com.xidian.pojo.Experiment_score">
+        select * from experiment_score natural join experimenter where id =#{id}  limit ${begin},${pageSize}
+    </select>
+    <select id="find1PageItems"  resultType="com.xidian.pojo.Students">
+        select * from students natural join experimenter where id =#{id}  limit ${begin},${pageSize}
+    </select>
+    <select id="findTPageItems"  resultType="com.xidian.pojo.Class_schedule">
+        select * from class_schedule natural join experimenter where id =#{id}  limit ${begin},${pageSize}
+    </select>
+    <select id="findLaPageItems"  resultType="com.xidian.pojo.Laboratory">
+        select * from laboratory  limit ${begin},${pageSize}
+    </select>
+    <select id="findExperPageItems"  resultType="com.xidian.pojo.Experimenter">
+        select * from experimenter  limit ${begin},${pageSize}
+    </select>
+
+    <select id="findETotalCount"  resultType="Integer">
+      select count(*) from class_schedule
+    </select>
+
+    <select id="findExPageItems"  resultType="com.xidian.pojo.Experiment_score">
+        select * from experiment_score  limit ${begin},${pageSize}
+    </select>
+
+    <select id="findCsPageItems"  resultType="com.xidian.pojo.Class_schedule">
+        select * from class_schedule  limit ${begin},${pageSize}
+    </select>
+
+</mapper>

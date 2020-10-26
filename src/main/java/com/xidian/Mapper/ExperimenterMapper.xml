@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.Mapper.ExperimenterMapper">
+    <insert id="addExperimenter" parameterType="com.xidian.pojo.Experiment">
+        insert into experimenter (id,name) values (#{id},#{name});
+    </insert>
+
+    <delete id="deleteExperimenter" parameterType="int">
+        delete from experimenter where id = #{id};
+    </delete>
+
+    <select id="getExperimenterList" resultType="com.xidian.pojo.Experimenter">
+		select * from experimenter
+	</select>
+
+    <select id="getExperimenterById" parameterType="int" resultType="com.xidian.pojo.Experimenter">
+		select * from experimenter where id = #{id}
+	</select>
+
+</mapper>
