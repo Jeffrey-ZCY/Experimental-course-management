@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xidian.Mapper.ExperimentMapper">
+    <insert id="addExperiment" parameterType="com.xidian.pojo.Experiment">
+        insert into experiment (course_id,experiment_id,experiment_name,experiment_category,difficulty,hours,schedule_weeks)
+        values (#{course_id},#{experiment_id},#{experiment_name},#{experiment_category},#{difficulty},#{hours},#{schedule_weeks});
+    </insert>
+
+    <delete id="deleteExperiment" parameterType="int">
+        delete from experiment where experiment_id = #{experiment_id};
+    </delete>
+
+    <select id="getExperimentList" resultType="com.xidian.pojo.Experiment">
+			select * from experiment
+	</select>
+
+    <select id="getExperimentById" parameterType="int" resultType="com.xidian.pojo.Experiment">
+			select * from experiment where experiment_id = #{experiment_id}
+	</select>
+
+</mapper>
